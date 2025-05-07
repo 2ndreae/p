@@ -5,7 +5,9 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-app.use(express.static(path.join(__dirname, "public")));  // 📌 public 폴더에서 정적 파일 제공
+const publicPath = path.join(process.cwd(), "public");
+
+app.use(express.static(publicPath));
 
 const server = http.createServer((req, res) => {
     if (req.url === "/" || req.url === "/index.html") {
